@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dad Jokes</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Dad Jokes</h1>
+        <nav>
+            <a href="index.html">Back to About Me</a>
+        </nav>
+    </header>
+
+    <section id="joke-section">
+        <p id="joke">Click the button for a random dad joke!</p>
+        <button id="get-joke">Get a Dad Joke</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 [Your Name]. All rights reserved.</p>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            // Function to fetch a random dad joke from an API
+            $('#get-joke').click(function() {
+                $.get('https://icanhazdadjoke.com/', function(data) {
+                    $('#joke').text(data.joke);
+                }, 'json');
+            });
+        });
+    </script>
+</body>
+</html>
